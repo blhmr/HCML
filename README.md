@@ -27,7 +27,7 @@ There is also a `main.c` file if you want to see an example of usage.
 
 Like any other key-value configuration files, HCML has `families` instead of sections:
 
-```xml
+```html
 # This is a comment
 
 <family: key = value>
@@ -46,7 +46,7 @@ Like any other key-value configuration files, HCML has `families` instead of sec
 ### Some rules to follow:
 - A family can have many **unique** key-value paires, and by **unique** I mean you can't have the same key names in the same family.
 - Family part, and the value part accept spaces, unline keys, so for example you can have an entry like this:
-```xml
+```html
 # Wrong
 <family 123: some key = some value>
 
