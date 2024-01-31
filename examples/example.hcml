@@ -1,0 +1,14 @@
+# This is a comment
+
+<family: key = value>
+
+<personal_info: first_name = Hatim>
+<personal_info: last_name = Belahmer>
+<personal_info: age = 17>
+<personal_info: country = Morocco>
+
+<account_info: username = hatim225>
+<account_info: password = SOMEPASS1234>
+
+<profile_info: profile_picture = PFP_1>
+<profile_info: color_scheme = RED>
