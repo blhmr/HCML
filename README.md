@@ -107,6 +107,9 @@ highlight link hcmlValue String
 highlight link hcmlComment Comment
 ```
 
+Should look like this with:
+<img src="https://cdn.discordapp.com/attachments/1043106668839456860/1202015711191367700/Tue_Jan_30_112045_PM_01_2024.png?ex=65cbeb5d&is=65b9765d&hm=0f9fc35a1dea6e109ffa719fab3b583c7573cca3f840de345745916e7ecb7d80&"/>
+
 ## Use case
 This language was primarly for personal use, therefore it lacks some features other configuration files have, so keep your expectations low.
 Example of usage: consider the following folder scheme
