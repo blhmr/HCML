@@ -124,10 +124,6 @@ school/
 │   │   └── information.hcml
 ```
 
-## Use case
-This library is for personal use, therefore it lacks some features other configuration files have, so keep your expectations low.
-Example of usage: consider the following folder scheme
-
 ## Undone and In Progress
 
 - Deleting entries in a `.hcml` file
