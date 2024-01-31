@@ -71,7 +71,7 @@ int main(void) {
 
     hcml_insert_value(&file, "family", "key", "value"); // Returns 0 if success
 
-    hcml_file_close(file); // Same thing
+    hcml_file_close(&file); // Same thing
 
     return 0;
 }
