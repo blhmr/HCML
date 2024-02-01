@@ -15,6 +15,7 @@ extern C {
 #include <ctype.h>
 #include <assert.h>
 #include <inttypes.h>
+#include <stdarg.h>
 
 /* ---- Macros ---- */
 #ifndef HCML_MAX_LEN_KEY
@@ -27,6 +28,11 @@ extern C {
 
 #ifndef HCML_MAX_LEN_FAMILY
 	#define HCML_MAX_LEN_FAMILY 50
+#endif
+
+#ifndef HCML_MAX_LEN_ARRAY
+	// Size of each element in an array
+	#define HCML_MAX_LEN_ARRAY 20
 #endif
 
 // <family: key = value>, '<' + family_len + ':' + space + key_len + space + '=' + value_len + '>'
@@ -87,6 +93,17 @@ int hcml_entry_parse(hcml_entry_t* hcml_entry, const char* string);											//
 
 // hcml_enums.c (DONE)
 hcml_type_t hcml_get_type(const char* line);																// Get the type of a string line, ends with '\n' (For example: Blank or comment or entry)
+
+// hcml_array.c
+//
+//	<food: fruits = apple,banana,orange>
+//	hcml_value_is_array() => true
+//	hcml_parse_from_array() => {"apple", "banana", "orange"}
+//	hcml_parse_to_array(3, "apple", "banana", "orange") => "apple,banana,orange"
+//
+bool hcml_value_is_array(const char* value);
+char** hcml_parse_from_array(const char* string);
+char* hcml_parse_to_array(int num_args, ...);
 
 #ifdef __c_plus_plus
 } // extern C
