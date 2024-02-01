@@ -96,10 +96,10 @@ hcml_type_t hcml_get_type(const char* line);																// Get the type of a
 
 // hcml_array.c
 //
-//	<food: fruits = apple,banana,orange>
+//	<food: fruits = apple;banana;orange>
 //	hcml_value_is_array() => true
 //	hcml_parse_from_array() => {"apple", "banana", "orange"}
-//	hcml_parse_to_array(3, "apple", "banana", "orange") => "apple,banana,orange"
+//	hcml_parse_to_array(3, "apple", "banana", "orange") => "apple;banana;orange"
 //
 bool hcml_value_is_array(const char* value);
 char** hcml_parse_from_array(const char* string);
