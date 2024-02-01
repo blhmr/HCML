@@ -14,7 +14,7 @@ HCML is a lightweight markup language designed for configuring applications. It 
 
 ## Installation
 
-HCML is a configuration markup language, but right now it can only be used as a C library to manipulate `.hcml` files, interpreter and more wrappers for more languages are coming soon only if this gets any popular. Anyways, here is how to install the library on your system (UNIX):
+HCML is a configuration markup language, but right now it can only be used as a C library to manipulate `.hcml` files, interpreter and more wrappers for more languages are coming soon only if this gets any popular. Here is how to install the library on your system (UNIX):
 
 ```bash
 git clone https://github.com/blhmr/HCML.git
@@ -27,7 +27,7 @@ There is also a `main.c` file if you want to see an example of usage.
 
 Like any other key-value configuration files, HCML has `families` instead of sections:
 
-```html
+```htmx
 # This is a comment
 
 <family: key = value>
@@ -46,7 +46,7 @@ Like any other key-value configuration files, HCML has `families` instead of sec
 ### Some rules to follow:
 - A family can have many **unique** key-value paires, and by **unique** I mean you can't have the same key names in the same family.
 - Family part, and the value part accept spaces, unline keys, so for example you can have an entry like this:
-```html
+```htmx
 # Wrong
 <family 123: some key = some value>
 
@@ -71,7 +71,7 @@ int main(void) {
 
     hcml_insert_value(&file, "family", "key", "value"); // Returns 0 if success
 
-    hcml_file_close(&file); // Same thing
+    hcml_file_close(file); // Same thing
 
     return 0;
 }
@@ -107,9 +107,6 @@ highlight link hcmlValue String
 highlight link hcmlComment Comment
 ```
 
-Should look like this with:
-<img src="https://cdn.discordapp.com/attachments/1043106668839456860/1202015711191367700/Tue_Jan_30_112045_PM_01_2024.png?ex=65cbeb5d&is=65b9765d&hm=0f9fc35a1dea6e109ffa719fab3b583c7573cca3f840de345745916e7ecb7d80&"/>
-
 ## Use case
 This language was primarly for personal use, therefore it lacks some features other configuration files have, so keep your expectations low.
 Example of usage: consider the following folder scheme
@@ -129,8 +126,8 @@ school/
 
 ## Undone and In Progress
 
-- Deleting entries in a `.hcml` file
 - Interpreter
+- Bindings for other languages: I will probably only make Python and C++ bindings unless this project gets too popular
 
 ## License
 

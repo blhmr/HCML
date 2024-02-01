@@ -72,6 +72,69 @@ int hcml_update_value(hcml_file_t* hcml_file, const char* family, const char* ke
 	else return -1;
 }
 
+// Done and tested
 int hcml_update_value_entry(hcml_file_t* hcml_file, hcml_entry_t* hcml_entry) {
 	return hcml_update_value(hcml_file, hcml_entry->family, hcml_entry->key, hcml_entry->value);
+}
+
+// Done and tested with some doubts
+int hcml_delete_key(hcml_file_t* hcml_file, const char* family, const char* key) {
+	assert(family != NULL && key != NULL);
+
+	if (hcml_key_exist(hcml_file, family, key)) {
+		char buffer[HCML_MAX_LEN_LINE + 1];
+		FILE* temp = fopen("temp____.hcml", "a+");
+
+		rewind(hcml_file->file);
+		while (fgets(buffer, HCML_MAX_LEN_LINE, hcml_file->file)) {
+			hcml_entry_t entry;
+			if (hcml_get_type(buffer) == HCML_ENTRY) {
+				hcml_entry_parse(&entry, buffer);
+				if (strcmp(entry.family, family) || strcmp(entry.key, key)) {
+					fprintf(temp, "<%s: %s = %s>\n", entry.family, entry.key, entry.value);
+				}
+			}
+			else fprintf(temp, buffer, HCML_MAX_LEN_LINE);
+		}
+
+		// This was harder than expected lol
+		remove(hcml_file->filename);
+		rename("temp____.hcml", hcml_file->filename);
+		hcml_file->file = (FILE*) temp;
+		return 0;
+	}
+	else return -1;
+}
+
+// Done and tested
+int hcml_delete_key_entry(hcml_file_t* hcml_file, hcml_entry_t* hcml_entry) {
+	return hcml_delete_key(hcml_file, hcml_entry->family, hcml_entry->key);
+}
+
+int hcml_delete_family(hcml_file_t* hcml_file, const char* family) {
+	assert(family != NULL);
+
+	if (hcml_family_exist(hcml_file, family)) {
+		char buffer[HCML_MAX_LEN_LINE + 1];
+		FILE* temp = fopen("temp____.hcml", "a+");
+
+		rewind(hcml_file->file);
+		while (fgets(buffer, HCML_MAX_LEN_LINE, hcml_file->file)) {
+			hcml_entry_t entry;
+			if (hcml_get_type(buffer) == HCML_ENTRY) {
+				hcml_entry_parse(&entry, buffer);
+				if (strcmp(entry.family, family)) {
+					fprintf(temp, "<%s: %s = %s>\n", entry.family, entry.key, entry.value);
+				}
+			}
+			else fprintf(temp, buffer, HCML_MAX_LEN_LINE);
+		}
+
+		// This was harder than expected lol
+		remove(hcml_file->filename);
+		rename("temp____.hcml", hcml_file->filename);
+		hcml_file->file = (FILE*) temp;
+		return 0;
+	}
+	else return -1;
 }

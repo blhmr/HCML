@@ -56,39 +56,37 @@ typedef struct __attribute__((packed)) {
 
 /* ---- Functions ---- */
 // hcml_file.c (DONE)
-int hcml_file_open(hcml_file_t* hcml_file, const char* filename);
-int hcml_file_close(hcml_file_t* hcml_file);
-int hcml_file_rename(hcml_file_t* hcml_file, const char* newname);
-int hcml_file_delete(hcml_file_t* hcml_file);
+int hcml_file_open(hcml_file_t* hcml_file, const char* filename);											// Open HCML file
+int hcml_file_close(hcml_file_t* hcml_file);																// Close HCML file
+int hcml_file_rename(hcml_file_t* hcml_file, const char* newname);											// Rename HCML file
+int hcml_file_delete(hcml_file_t* hcml_file);																// Delete HCML file
 
 // hcml_handle.c
-char* hcml_get_value(hcml_file_t* hcml_file, const char* family, const char* key); // DONE
+char* hcml_get_value(hcml_file_t* hcml_file, const char* family, const char* key);							// Get the value as string (must be freed) 
 
-int hcml_insert_value(hcml_file_t* hcml_file, const char* family, const char* key, const char* value);
-int hcml_insert_value_entry(hcml_file_t* hcml_file, hcml_entry_t* hcml_entry);
+int hcml_insert_value(hcml_file_t* hcml_file, const char* family, const char* key, const char* value);		// Insert the value into HCML file
+int hcml_insert_value_entry(hcml_file_t* hcml_file, hcml_entry_t* hcml_entry);								// Same thing using the hcml_entry_t struct
 
-int hcml_update_value(hcml_file_t* hcml_file, const char* family, const char* key, const char* value);
-int hcml_update_value_entry(hcml_file_t* hcml_file, hcml_entry_t* hcml_entry);
+int hcml_update_value(hcml_file_t* hcml_file, const char* family, const char* key, const char* value);		// Update a value in HCML file
+int hcml_update_value_entry(hcml_file_t* hcml_file, hcml_entry_t* hcml_entry);								// Same thing using entry struct
 
-/* ------------ THESE ARE UNDONE -----------------*/
-int hcml_delete_key(hcml_file_t* hcml_file, const char* family, const char* key);
-int hcml_delete_key_entry(hcml_file_t* hcml_file, hcml_entry_t* hcml_entry);
+int hcml_delete_key(hcml_file_t* hcml_file, const char* family, const char* key);							// Delete a key from HCML file
+int hcml_delete_key_entry(hcml_file_t* hcml_file, hcml_entry_t* hcml_entry);								// .... using struct
 
-int hcml_delete_family(hcml_file_t* hcml_file, const char* family);
-/* -----------------------------------------------*/
+int hcml_delete_family(hcml_file_t* hcml_file, const char* family);											// Delete the whole family
 
 // hcml_info.c (DONE)
-bool hcml_family_exist(hcml_file_t* hcml_file, const char* family);
-bool hcml_key_exist(hcml_file_t* hcml_file, const char* family, const char* key);
-size_t hcml_entry_num(hcml_file_t* hcml_file);
-int64_t hcml_get_line_key(hcml_file_t* hcml_file, const char* family, const char* key);
+bool hcml_family_exist(hcml_file_t* hcml_file, const char* family);											// Check if family exists
+bool hcml_key_exist(hcml_file_t* hcml_file, const char* family, const char* key);							// Check if key exists
+size_t hcml_entry_num(hcml_file_t* hcml_file);																// Check how many entries are in a HCML file
+int64_t hcml_get_line_key(hcml_file_t* hcml_file, const char* family, const char* key);						// Get the line number of an entry
 
 // hcml_entry.c (DONE)
-hcml_entry_t hcml_entry_create(const char* family, const char* key, const char* value);
-int hcml_entry_parse(hcml_entry_t* hcml_entry, const char* string);
+hcml_entry_t hcml_entry_create(const char* family, const char* key, const char* value);						// Initialize the entry struct
+int hcml_entry_parse(hcml_entry_t* hcml_entry, const char* string);											// Parse a string to entry struct, must end with '\n'
 
 // hcml_enums.c (DONE)
-hcml_type_t hcml_get_type(const char* line);
+hcml_type_t hcml_get_type(const char* line);																// Get the type of a string line, ends with '\n' (For example: Blank or comment or entry)
 
 #ifdef __c_plus_plus
 } // extern C

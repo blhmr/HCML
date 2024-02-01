@@ -6,10 +6,9 @@ int main(void) {
 
 	hcml_file_open(&file, "example.hcml");
 
-	hcml_entry_t entry = {"account_info", "username", "hatim"};
+//	hcml_delete_key(&file, "account_info", "password2");
 
-	hcml_update_value_entry(&file, &entry);
-
+	hcml_delete_family(&file, "additional_info");
 	hcml_file_close(&file);
 	return 0;
 }
