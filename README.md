@@ -9,6 +9,7 @@ HCML is a lightweight markup language designed for configuring applications. It 
 - Hierarchical structure support
 - Lightweight and easy to use
 - Portable C library, no external dependencies
+- Arrays: parsing a string into array and array from a string
 
 ## 
 
@@ -27,7 +28,7 @@ There is also a `main.c` file if you want to see an example of usage.
 
 Like any other key-value configuration files, HCML has `families` instead of sections:
 
-```html
+```htmx
 # This is a comment
 
 <family: key = value>
@@ -46,7 +47,7 @@ Like any other key-value configuration files, HCML has `families` instead of sec
 ### Some rules to follow:
 - A family can have many **unique** key-value paires, and by **unique** I mean you can't have the same key names in the same family.
 - Family part, and the value part accept spaces, unline keys, so for example you can have an entry like this:
-```html
+```htmx
 # Wrong
 <family 123: some key = some value>
 
@@ -76,6 +77,17 @@ int main(void) {
     return 0;
 }
 ```
+
+### Arrays
+Arrays are here ! Here is how to use them:
+`html
+<food: fruits = apple;orange;banana>
+`
+This is an array of family `food`, its key is `fruits` and has the values `apple`, `orange` and `banana`
+When using the C library:
+- `bool hcml_value_is_array(const char* value)`: This returns a `bool` value, it checks wether a `value` string is an array so we can use it for parsing
+- `char** hcml_parse_from_array(const char* string)`: This functions returns an `array of strings`, must be freed after working with it, just pass a string that can be parsed using the function above
+- `char* hcml_parse_to_array(int num_args, ...)`: This functions takes a number of `num_args` of arguments as string, converts them into a string buffer that can be treated as an array, or can be written to the HCML file
 
 ## Vim
 This language and library was made in Vim, so if you want to use the syntax highlighting file, simply copy and paste this into `.vim/after/syntax/hcml.vim`:
@@ -124,14 +136,10 @@ school/
 │   │   └── information.hcml
 ```
 
-## In Progress
+## Undone and In Progress
 
 - Interpreter
 - Bindings for other languages: I will probably only make Python and C++ bindings unless this project gets too popular
-- Arrays, for example:
-```html
-<food: fruits = apple,banana,orange>
-```
 
 ## License
 

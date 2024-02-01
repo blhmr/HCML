@@ -5,7 +5,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Iinclude
 
 # Library
-LIB_SRCS = src/hcml_entry.c src/hcml_enums.c src/hcml_file.c src/hcml_handle.c src/hcml_info.c
+LIB_SRCS = src/hcml_entry.c src/hcml_enums.c src/hcml_file.c src/hcml_handle.c src/hcml_info.c src/hcml_array.c
 LIB_OBJS = $(LIB_SRCS:src/%.c=obj/%.o)
 	LIB_TARGET = lib/libhcml.a
 
