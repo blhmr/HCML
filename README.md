@@ -124,10 +124,14 @@ school/
 │   │   └── information.hcml
 ```
 
-## Undone and In Progress
+## In Progress
 
 - Interpreter
 - Bindings for other languages: I will probably only make Python and C++ bindings unless this project gets too popular
+- Arrays, for example:
+```html
+<food: fruits = apple,banana,orange>
+```
 
 ## License
 
