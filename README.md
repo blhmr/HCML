@@ -80,9 +80,9 @@ int main(void) {
 
 ### Arrays
 Arrays are here ! Here is how to use them:
-`html
+```html
 <food: fruits = apple;orange;banana>
-`
+```
 This is an array of family `food`, its key is `fruits` and has the values `apple`, `orange` and `banana`
 When using the C library:
 - `bool hcml_value_is_array(const char* value)`: This returns a `bool` value, it checks wether a `value` string is an array so we can use it for parsing
