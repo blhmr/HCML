@@ -1,3 +1,11 @@
+/*
+ *
+ *	Example 1:
+ *
+ * Open a HCML file, rename it then close it.
+ *
+ * */
+
 #include <hcml.h>
 
 int main(void) {

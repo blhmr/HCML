@@ -1,3 +1,14 @@
+/*
+ *	Example 2:
+ *
+ *	Open a HCML file.
+ *	Get a value from the file.
+ *	Check if it exists.
+ *	Print it.
+ *	Close the file.
+ *
+ * */
+
 #include <hcml.h>
 
 int main(void) {
