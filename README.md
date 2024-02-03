@@ -45,6 +45,7 @@ Like any other key-value configuration files, HCML has `families` instead of sec
 <profile_info: color_scheme = RED>
 ```
 ### Some rules to follow:
+
 - A family can have many **unique** key-value paires, and by **unique** I mean you can't have the same key names in the same family.
 - Family part, and the value part accept spaces, unline keys, so for example you can have an entry like this:
 ```html
@@ -57,6 +58,7 @@ Like any other key-value configuration files, HCML has `families` instead of sec
 - The syntax is strict, meaning that if you add a space between the value part and '=', it will be a part of the value.
 
 ### Using the minimal C library:
+
 ```c
 #include <hcml.h>
 
@@ -77,8 +79,10 @@ int main(void) {
     return 0;
 }
 ```
+There are examples in the `example` directory, use `make` to compile the run each example! Read the code for explanations
 
 ### Arrays
+
 Arrays are here ! Here is how to use them:
 ```html
 <food: fruits = apple;orange;banana>
@@ -90,6 +94,7 @@ When using the C library:
 - `char* hcml_parse_to_array(int num_args, ...)`: This functions takes a number of `num_args` of arguments as string, converts them into a string buffer that can be treated as an array, or can be written to the HCML file
 
 ## Vim
+
 This language and library was made in Vim, so if you want to use the syntax highlighting file, simply copy and paste this into `.vim/after/syntax/hcml.vim`:
 
 ```vim
@@ -122,6 +127,7 @@ Preview:
 <img src="https://cdn.discordapp.com/attachments/1043106668839456860/1202015711191367700/Tue_Jan_30_112045_PM_01_2024.png?ex=65cbeb5d&is=65b9765d&hm=0f9fc35a1dea6e109ffa719fab3b583c7573cca3f840de345745916e7ecb7d80&">
 
 ## Use case
+
 This language was primarly for personal use, therefore it lacks some features other configuration files have, so keep your expectations low.
 Example of usage: consider the following folder scheme
 
@@ -146,3 +152,5 @@ school/
 ## License
 
 This library is provided under the [MIT License](LICENSE). Feel free to use and modify it in your projects.
+
+Sorry if my English was horrible, it's not my main language.
