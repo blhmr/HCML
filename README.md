@@ -152,5 +152,3 @@ school/
 ## License
 
 This library is provided under the [MIT License](LICENSE). Feel free to use and modify it in your projects.
-
-Sorry if my English was horrible, it's not my main language.
