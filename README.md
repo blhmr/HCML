@@ -15,7 +15,7 @@ HCML is a lightweight markup language designed for configuring applications. It 
 
 ## Installation
 
-HCML is a configuration markup language, but right now it can only be used as a C library to manipulate `.hcml` files, interpreter and more wrappers for more languages are coming soon only if this gets any popular. Here is how to install the library on your system (UNIX):
+HCML is a configuration markup language, but right now it can only be used as a C library to manipulate `.hcml` files, more wrappers for more languages are coming soon only if this gets any popular. Here is how to install the library on your system (UNIX):
 
 ```bash
 git clone https://github.com/blhmr/HCML.git
@@ -146,7 +146,6 @@ school/
 
 ## Undone and In Progress
 
-- Interpreter
 - Bindings for other languages: I will probably only make Python and C++ bindings unless this project gets too popular
 
 ## License
