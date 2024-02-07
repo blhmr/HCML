@@ -6,9 +6,8 @@ HCML is a lightweight markup language designed for configuring applications. It 
 
 - Simple and intuitive syntax
 - Support for key-value pairs
-- Hierarchical structure support
 - Lightweight and easy to use
-- Portable C library, no external dependencies
+- Portable C library
 - Arrays: parsing a string into array and array from a string
 
 ## 
