@@ -1,4 +1,4 @@
-![hcml_logo](https://github.com/blhmr/HCML/assets/134303496/4b71bca6-4e65-4e09-a4a5-35b006d0f2b7)
+![hcml_logo](https://github.com/blhmr/HCML/assets/134303496/76d27b0a-771a-4eeb-84d0-f2cc2e7846eb)
 
 # HCML 📎 (Hatim's Configuration Markup Language)
 
