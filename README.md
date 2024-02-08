@@ -1,3 +1,5 @@
+![hcml_logo]([https://github.com/blhmr/HCML/blob/main/logo/hcml_logo.png])
+
 # HCML 📎 (Hatim's Configuration Markup Language)
 
 HCML is a lightweight markup language designed for configuring applications. It provides a simple and human-readable syntax for specifying key-value pairs and hierarchical data structures.
