@@ -3,12 +3,14 @@
 
 int main(void) {
 	hcml_file_t file;
-
 	hcml_file_open(&file, "example.hcml");
-
-//	hcml_delete_key(&file, "account_info", "password2");
-
-	hcml_delete_family(&file, "additional_info");
+	{
+		char* value;
+		if ((value = hcml_get_value(&file, "personal_info", "name")) != NULL) {
+			printf("Value : %s from file %s\n", value, file.filename);
+			free(value);
+		}
+		else printf("Error !\n");
+	}
 	hcml_file_close(&file);
-	return 0;
 }
