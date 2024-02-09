@@ -56,7 +56,12 @@ Like any other key-value configuration files, HCML has `families` instead of sec
 # Right
 <family 123: some_key = some value>
 ```
-- The syntax is strict, meaning that if you add a space between the value part and '=', it will be a part of the value.
+- The syntax is strict:
+```c
+// family: letters, numbers, underscore and slash
+// key: letters, numbers and underscore
+// value: anything that is in ASCII
+```
 
 ### Using the minimal C library:
 
