@@ -5,9 +5,14 @@
 
 hcml_entry_t hcml_entry_create(const char* family, const char* key, const char* value) {
 	hcml_entry_t entry;
-	strcpy(entry.family, family);
-	strcpy(entry.key, key);
-	strcpy(entry.value, value);
+	
+	if (hcml_valid_family(family) && hcml_valid_key(key) && hcml_valid_value(value)) {
+		strcpy(entry.family, family);
+		strcpy(entry.key, key);
+		strcpy(entry.value, value);
+	}
+	else entry = (hcml_entry_t) {"0", "0", "0"};
+
 	return entry;
 }
 

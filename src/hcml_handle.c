@@ -32,7 +32,9 @@ int hcml_insert_value(hcml_file_t* hcml_file, const char* family, const char* ke
 	assert(family != NULL && key != NULL && value != NULL);
 
 	rewind(hcml_file->file);
-	if (!hcml_key_exist(hcml_file, family, key)) {
+	hcml_entry_t entry = hcml_entry_create(family, key, value);
+
+	if (!hcml_key_exist(hcml_file, family, key) && hcml_valid_entry(&entry)) {
 		fprintf(hcml_file->file, "<%s: %s = %s>\n", family, key, value);
 		return 0;
 	}
