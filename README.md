@@ -48,19 +48,22 @@ Like any other key-value configuration files, HCML has `families` instead of sec
 ### Some rules to follow:
 
 - A family can have many **unique** key-value paires, and by **unique** I mean you can't have the same key names in the same family.
-- Family part, and the value part accept spaces, unline keys, so for example you can have an entry like this:
-```html
-# Wrong
-<family 123: some key = some value>
-
-# Right
-<family 123: some_key = some value>
-```
 - The syntax is strict:
 ```c
 // family: letters, numbers, underscore and slash
 // key: letters, numbers and underscore
 // value: anything that is in ASCII
+```
+For example:
+```html
+# Wrong
+<family 123: some key = some value>
+
+# Right
+<family_123: some_key = some value>
+
+# Right
+<info/personal: email = xyz@example.com>
 ```
 
 ### Using the minimal C library:
