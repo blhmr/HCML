@@ -1,4 +1,5 @@
 ![hcml_logo](https://github.com/blhmr/HCML/assets/134303496/2f3b85ac-f566-46a8-9ad0-939b42ee60b7)
+<img src="https://cdn.discordapp.com/attachments/1043106668839456860/1209171188237082654/303505010-2f3b85ac-f566-46a8-9ad0-939b42ee60b7.png?ex=65e5f36c&is=65d37e6c&hm=6509cef9ac6ca1128e90cb3a9fbf483d566cc9aadcdd83e43b0ff2acb5a10494&" alt="HCML" style="display: block; margin: 0 auto; width: 200px; height: 200px;">
 
 # HCML 📎 (Hatim's Configuration Markup Language)
 
@@ -32,18 +33,18 @@ Like any other key-value configuration files, HCML has `families` instead of sec
 ```html
 # This is a comment
 
-<family: key = value>
+<family:key=value>
 
-<personal_info: first_name = Hatim>
-<personal_info: last_name = Belahmer>
-<personal_info: age = 17>
-<personal_info: country = Morocco>
+<info/personal:first_name=Hatim>
+<info/persnal:last_name=Belahmer>
+<info/personal:age=17>
+<info/personal:country=Morocco>
 
-<account_info: username = hatim225>
-<account_info: password = SOMEPASS1234>
+<info/account:username=hatim225>
+<info/account:password=SOMEPASS1234>
 
-<profile_info: profile_picture = PFP_1>
-<profile_info: color_scheme = RED>
+<info/account:profile_picture=PFP_1>
+<info/account:color_scheme=RED>
 ```
 ### Some rules to follow:
 
@@ -57,13 +58,20 @@ Like any other key-value configuration files, HCML has `families` instead of sec
 For example:
 ```html
 # Wrong
-<family 123: some key = some value>
+<family 123:some key=some value>
 
 # Right
-<family_123: some_key = some value>
+<family_123:some_key=some value>
 
 # Right
-<info/personal: email = xyz@example.com>
+<info/personal:email=xyz@example.com>
+
+# Right but not as expected, because it'll include the spaces
+<info/personal: nationality = Moroccan>
+# So the entry will be:
+# FAMILY: "info/personal"
+# KEY: " nationality "
+# VALUE: " Moroccan"
 ```
 
 ### Using the minimal C library:
@@ -78,7 +86,7 @@ For example:
 
 int main(void) {
     hcml_file_t file;
-    
+
     hcml_file_open(&file, "newfile.hcml"); // Returns 0 if success
 
     hcml_insert_value(&file, "family", "key", "value"); // Returns 0 if success
@@ -88,6 +96,8 @@ int main(void) {
     return 0;
 }
 ```
+
+As simple as that!
 There are examples in the `example` directory, use `make` to compile the run each example! Read the code for explanations
 
 ### Arrays
