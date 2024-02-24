@@ -5,7 +5,7 @@
 
 // Done and tested
 bool hcml_value_is_array(const char* value) {
-    return strchr(value, ';') != NULL;
+	return strchr(value, ';') != NULL;
 }
 
 char** hcml_parse_from_array(const char* string) {
@@ -27,7 +27,7 @@ char** hcml_parse_from_array(const char* string) {
 	string_clone[strlen(string_clone)] = '\0';
 
 	token = strtok(string_clone, delimiter);
-	
+
 	while (token != NULL) {
 		elements[index] = strdup(token);
 		if (elements[index] == NULL) {
@@ -37,7 +37,7 @@ char** hcml_parse_from_array(const char* string) {
 			free(elements);
 			return NULL;
 		}
-		
+
 		token = strtok(NULL, delimiter);
 		index++;
 	}
@@ -50,7 +50,7 @@ char* hcml_parse_to_array(int num_args, ...) {
 	va_list args;
 	va_start(args, num_args);
 	int index = 0;
-	
+
 	char* array_string = malloc(HCML_MAX_LEN_VALUE * sizeof(char));
 	if (array_string == NULL) return NULL;
 

@@ -21,7 +21,7 @@ char* hcml_get_value(hcml_file_t* hcml_file, const char* family, const char* key
 			fgets(buffer, HCML_MAX_LEN_LINE, hcml_file->file);
 		}
 
-		if (sscanf(buffer, "<%[^:]: %[^ ] = %[^>]>\n", got_family, got_key, value) != 3) return NULL;
+		if (sscanf(buffer, "<%[^:]:%[^=]=%[^>]>\n", got_family, got_key, value) != 3) return NULL;
 		else return value;
 	}
 	else return NULL;
@@ -35,7 +35,7 @@ int hcml_insert_value(hcml_file_t* hcml_file, const char* family, const char* ke
 	hcml_entry_t entry = hcml_entry_create(family, key, value);
 
 	if (!hcml_key_exist(hcml_file, family, key) && hcml_valid_entry(&entry)) {
-		fprintf(hcml_file->file, "<%s: %s = %s>\n", family, key, value);
+		fprintf(hcml_file->file, "<%s:%s=%s>\n", family, key, value);
 		return 0;
 	}
 	else return -1;
@@ -58,9 +58,9 @@ int hcml_update_value(hcml_file_t* hcml_file, const char* family, const char* ke
 			if (hcml_get_type(buffer) == HCML_ENTRY) {
 				hcml_entry_parse(&entry, buffer);
 				if (!strcmp(entry.family, family) && !strcmp(entry.key, key)) {
-					fprintf(temp, "<%s: %s = %s>\n", family, key, value);
+					fprintf(temp, "<%s:%s=%s>\n", family, key, value);
 				}
-				else fprintf(temp, "<%s: %s = %s>\n", entry.family, entry.key, entry.value);
+				else fprintf(temp, "<%s:%s=%s>\n", entry.family, entry.key, entry.value);
 			}
 			else fprintf(temp, buffer, HCML_MAX_LEN_LINE);
 		}
@@ -93,7 +93,7 @@ int hcml_delete_key(hcml_file_t* hcml_file, const char* family, const char* key)
 			if (hcml_get_type(buffer) == HCML_ENTRY) {
 				hcml_entry_parse(&entry, buffer);
 				if (strcmp(entry.family, family) || strcmp(entry.key, key)) {
-					fprintf(temp, "<%s: %s = %s>\n", entry.family, entry.key, entry.value);
+					fprintf(temp, "<%s:%s=%s>\n", entry.family, entry.key, entry.value);
 				}
 			}
 			else fprintf(temp, buffer, HCML_MAX_LEN_LINE);
@@ -126,7 +126,7 @@ int hcml_delete_family(hcml_file_t* hcml_file, const char* family) {
 			if (hcml_get_type(buffer) == HCML_ENTRY) {
 				hcml_entry_parse(&entry, buffer);
 				if (strcmp(entry.family, family)) {
-					fprintf(temp, "<%s: %s = %s>\n", entry.family, entry.key, entry.value);
+					fprintf(temp, "<%s:%s=%s>\n", entry.family, entry.key, entry.value);
 				}
 			}
 			else fprintf(temp, buffer, HCML_MAX_LEN_LINE);
