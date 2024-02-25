@@ -72,6 +72,16 @@ For example:
 # KEY: " nationality "
 # VALUE: " Moroccan"
 ```
+- New line can be done with:
+```html
+<info/profile:bio=This is some long text \This is a new line \Cool right?>
+```
+Will get this using the C library parser:
+```
+This is some long text
+This is a new line
+Cool right?
+```
 
 ### Using the minimal C library:
 
