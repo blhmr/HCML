@@ -22,7 +22,11 @@ char* hcml_get_value(hcml_file_t* hcml_file, const char* family, const char* key
 		}
 
 		if (sscanf(buffer, "<%[^:]:%[^=]=%[^>]>\n", got_family, got_key, value) != 3) return NULL;
-		else return value;
+		else {
+			char* new_value = hcml_to_buffer(value);
+			free(value);
+			return new_value;
+		}
 	}
 	else return NULL;
 }
@@ -35,7 +39,9 @@ int hcml_insert_value(hcml_file_t* hcml_file, const char* family, const char* ke
 	hcml_entry_t entry = hcml_entry_create(family, key, value);
 
 	if (!hcml_key_exist(hcml_file, family, key) && hcml_valid_entry(&entry)) {
-		fprintf(hcml_file->file, "<%s:%s=%s>\n", family, key, value);
+		char* new_value = buffer_to_hcml((char*) value);
+		fprintf(hcml_file->file, "<%s:%s=%s>\n", family, key, new_value);
+		free(new_value);
 		return 0;
 	}
 	else return -1;

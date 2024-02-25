@@ -42,3 +42,58 @@ bool hcml_valid_entry(hcml_entry_t* entry) {
 	return (hcml_valid_key(entry->key) && hcml_valid_family(entry->family) && hcml_valid_value(entry->value));
 }
 
+char *string_replace(char *before, char *oldsub, char *newsub) {
+  int old_length = strlen(oldsub);
+  int new_length = strlen(newsub);
+  int before_length = strlen(before);
+  
+  char *after;
+  
+  if (old_length == new_length) {
+    after = malloc((before_length + 1) * sizeof(char));
+  }
+  else {
+    int occurrences = 0;
+    
+    int i = 0;
+    while (i < before_length) {
+      if (strstr(&before[i], oldsub) == &before[i]) {
+        occurrences++;
+        i += old_length;
+      }
+      else i++;
+    }
+    int sub_diff = new_length - old_length;
+    int after_length = before_length;
+    after_length += occurrences * sub_diff;
+    
+    after = malloc((after_length + 1) * sizeof(char));
+  }
+  
+  int i = 0;
+  int j = 0;
+  
+  while ((size_t) i < strlen(before)) {
+    if (strstr(&before[i], oldsub) == &before[i]) {
+      strcpy(&after[j], newsub);
+      i += old_length;
+      j += new_length;
+    }
+    else
+    {
+      after[j] = before[i];
+      i++;
+      j++;
+    }
+  }
+  after[j] = '\0';
+  return after;
+}
+
+char* hcml_to_buffer(char* buffer) {
+	return string_replace(buffer, " \\", (char*) "\n");
+}
+
+char* buffer_to_hcml(char* buffer) {
+	return string_replace(buffer, (char*) "\n", " \\");
+} 
