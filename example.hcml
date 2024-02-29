@@ -1,11 +1,14 @@
 # This is a comment
 
-<personal_info: name = hatim>
-<personal_info: last_name = belahmer>
-<personal_info: age = 17>
-<account_info: username = hatim>
+# Personal informations
+<info/personal:name=hatim>
+<info/personal:last_name=belahmer>
+<info/personal:age=17>
 
-<account_info: password = SOMEPASS1234>
-<account_info: somekey = somevalue>
+# Account information
+<info/account:username=hatim>
+<info/account:password=SOMEPASS1234>
+<info/account:somekey=somevalue>
 
-
+# Buffers
+<info/profile:bio=This is some real message \Do not copy this data>

@@ -15,7 +15,7 @@ char** hcml_parse_from_array(const char* string) {
 	char* token;
 	int index = 0;
 
-	printf("STRING: %s\n", string);
+	// printf("STRING: %s\n", string);
 
 	if (elements == NULL) return NULL;
 

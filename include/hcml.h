@@ -106,7 +106,7 @@ char* hcml_parse_to_array(int num_args, ...);
 //
 // family: letters, numbers, underscore and slash
 // key: letters, numbers and underscore
-// value: anything that isn't empty or NULL
+// value: anything that is not '\n' (must be replaced with ' \')
 //
 bool hcml_valid_family(const char* family);
 bool hcml_valid_key(const char* key);

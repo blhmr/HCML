@@ -68,9 +68,6 @@ bool hcml_key_exist(hcml_file_t* hcml_file, const char* family, const char* key)
 size_t hcml_entry_num(hcml_file_t* hcml_file);																// Check how many entries are in a HCML file
 int64_t hcml_get_line_key(hcml_file_t* hcml_file, const char* family, const char* key);						// Get the line number of an entry
 
-/* Undone */
-void hcml_line_info(const char* line);
-
 // hcml_entry.c (DONE)
 hcml_entry_t hcml_entry_create(const char* family, const char* key, const char* value);						// Initialize the entry struct
 int hcml_entry_parse(hcml_entry_t* hcml_entry, const char* string);											// Parse a string to entry struct, must end with '\n'
@@ -80,7 +77,7 @@ hcml_type_t hcml_get_type(const char* line);																// Get the type of a
 
 // hcml_array.c
 //
-//	<food: fruits = apple,banana,orange>
+//	<food:fruits=apple;banana;orange>
 //	hcml_value_is_array() => true
 //	hcml_parse_from_array() => {"apple", "banana", "orange"}
 //	hcml_parse_to_array(3, "apple", "banana", "orange") => "apple,banana,orange"
@@ -93,10 +90,20 @@ char* hcml_parse_to_array(int num_args, ...);
 //
 // family: letters, numbers, underscore and slash
 // key: letters, numbers and underscore
-// value: anything that is in ASCII or UTF-8
+// value: anything that is not '\n' (must be replaced with ' \')
 //
 bool hcml_valid_family(const char* family);
 bool hcml_valid_key(const char* key);
 bool hcml_valid_value(const char* value);
 bool hcml_valid_entry(hcml_entry_t* entry);
+
+// For newline characters
+char* hcml_to_buffer(char* buffer);
+char* buffer_to_hcml(char* buffer);
+
+#ifdef __c_plus_plus
+} // extern C
+#endif
+
+#endif
 ```

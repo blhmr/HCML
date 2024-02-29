@@ -11,8 +11,8 @@ int main(void) {
 	hcml_file_t file;
 	hcml_file_open(&file, "example.hcml");
 	
-	int r;
-	if (r = hcml_update_value(&file, "new_family", "somekey", "newvalue") == 0) {
+	int r = hcml_update_value(&file, "new_family", "somekey", "newvalue");
+	if (r == 0) {
 		printf("Successfully updated the entry!\n");
 	}
 	else printf("Something went wrong.\n");

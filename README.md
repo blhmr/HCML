@@ -1,3 +1,4 @@
+![hcml_logo](https://github.com/blhmr/HCML/assets/134303496/2f3b85ac-f566-46a8-9ad0-939b42ee60b7)
 <img src="https://cdn.discordapp.com/attachments/1043106668839456860/1209171188237082654/303505010-2f3b85ac-f566-46a8-9ad0-939b42ee60b7.png?ex=65e5f36c&is=65d37e6c&hm=6509cef9ac6ca1128e90cb3a9fbf483d566cc9aadcdd83e43b0ff2acb5a10494&" alt="HCML" style="display: block; margin: 0 auto; width: 200px; height: 200px;">
 
 # HCML 📎 (Hatim's Configuration Markup Language)
@@ -72,16 +73,6 @@ For example:
 # KEY: " nationality "
 # VALUE: " Moroccan"
 ```
-- New line can be done with:
-```html
-<info/profile:bio=This is some long text \This is a new line \Cool right?>
-```
-Will get this using the C library parser:
-```
-This is some long text
-This is a new line
-Cool right?
-```
 
 ### Using the minimal C library:
 
@@ -152,7 +143,7 @@ highlight link hcmlValue String
 highlight link hcmlComment Comment
 ```
 Preview:
-<img src="https://cdn.discordapp.com/attachments/1043106668839456860/1209171773975953529/Mon_Feb_19_051207_PM_01_2024.png?ex=65e5f3f8&is=65d37ef8&hm=8e2122cb9dfe95646b01edff90f9545c10fbf328bfa723cb081aa6c63d5f739d&">
+<img src="https://cdn.discordapp.com/attachments/1043106668839456860/1202015711191367700/Tue_Jan_30_112045_PM_01_2024.png?ex=65cbeb5d&is=65b9765d&hm=0f9fc35a1dea6e109ffa719fab3b583c7573cca3f840de345745916e7ecb7d80&">
 
 ## Use case
 
@@ -179,3 +170,4 @@ school/
 ## License
 
 This library is provided under the [MIT License](LICENSE). Feel free to use and modify it in your projects.
+
