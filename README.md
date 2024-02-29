@@ -1,4 +1,3 @@
-![hcml_logo](https://github.com/blhmr/HCML/assets/134303496/2f3b85ac-f566-46a8-9ad0-939b42ee60b7)
 <img src="https://cdn.discordapp.com/attachments/1043106668839456860/1209171188237082654/303505010-2f3b85ac-f566-46a8-9ad0-939b42ee60b7.png?ex=65e5f36c&is=65d37e6c&hm=6509cef9ac6ca1128e90cb3a9fbf483d566cc9aadcdd83e43b0ff2acb5a10494&" alt="HCML" style="display: block; margin: 0 auto; width: 200px; height: 200px;">
 
 # HCML 📎 (Hatim's Configuration Markup Language)
