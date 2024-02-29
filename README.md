@@ -142,7 +142,7 @@ highlight link hcmlValue String
 highlight link hcmlComment Comment
 ```
 Preview:
-<img src="https://cdn.discordapp.com/attachments/1043106668839456860/1202015711191367700/Tue_Jan_30_112045_PM_01_2024.png?ex=65cbeb5d&is=65b9765d&hm=0f9fc35a1dea6e109ffa719fab3b583c7573cca3f840de345745916e7ecb7d80&">
+<img src="https://media.discordapp.net/attachments/1043106668839456860/1209171773975953529/Mon_Feb_19_051207_PM_01_2024.png?ex=65ef2e78&is=65dcb978&hm=a0b2edf2268ad6d5f91d8f955a48b6abb2c7d86ff5fbe70be950df1ee08f3e02&=&format=webp&quality=lossless&width=780&height=439">
 
 ## Use case
 
